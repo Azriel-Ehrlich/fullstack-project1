@@ -1,99 +1,22 @@
-/* ============================================== */
-/*  BOOKVERSE – ENHANCED BOOKS PAGE (FULL CSS)   */
-/*  HTML + CSS Only | Responsive | 3D Flip Cards */
-/* ============================================== */
+/* ======================================= */
+/* BOOKVERSE – BOOKS PAGE STYLES           */
+/* Page-specific styles for books.html     */
+/* No gradients or vendor prefixes         */
+/* ======================================= */
 
-/* ---------- GLOBAL ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ---------- PAGE BACKGROUND ---------- */
 body {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+  background-color: #0d0d0d;
   color: #e0d6c3;
-  font-family: 'Georgia', serif;
-  line-height: 1.6;
-  position: relative;
   overflow-x: hidden;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ---------- HEADER & NAVIGATION ---------- */
-header {
-  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-  color: #d4af37;
-  text-align: center;
-  padding: 30px 20px;
-  border-bottom: 3px solid #d4af37;
-  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
-  position: relative;
-  z-index: 10;
-}
-
-header h1 {
-  font-size: 36px;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  letter-spacing: 2px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  color: #e0d6c3;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  transition: width 0.3s ease;
-}
-
-nav a:hover {
-  color: #d4af37;
-  transform: translateY(-2px);
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ---------- STICKY CATEGORY BAR ---------- */
+/* ---------- CATEGORY BAR ---------- */
 .category-bar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: linear-gradient(90deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%);
-  backdrop-filter: blur(10px);
+  background-color: #1a1a1a;
   border-bottom: 2px solid #d4af37;
   padding: 15px 20px;
   display: flex;
@@ -104,48 +27,40 @@ nav a:hover::after {
 }
 
 .category-bar a {
-  color: #c9a961;
+  color: #d4af37;
   text-decoration: none;
   font-weight: bold;
   padding: 8px 18px;
-  border: 1px solid #c9a961;
+  border: 1px solid #d4af37;
   border-radius: 25px;
-  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.category-bar a::before {
-  content: '';
+/* Subtle underline animation */
+.category-bar a::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #c9a961;
-  z-index: -1;
-  transition: left 0.3s ease;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #d4af37;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.category-bar a:hover::after {
+  width: 70%;
 }
 
 .category-bar a:hover {
+  background-color: #d4af37;
   color: #0d0d0d;
   transform: scale(1.05);
 }
 
-.category-bar a:hover::before {
-  left: 0;
-}
-
 /* ---------- MAIN CONTENT ---------- */
-main {
-  position: relative;
-  z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* ---------- GENRE SECTIONS ---------- */
 .genres {
   display: flex;
   flex-direction: column;
@@ -157,19 +72,9 @@ main {
   animation: fadeInUp 0.8s ease-out;
 }
 
-.genre-section.alt {
-  background: linear-gradient(90deg, rgba(20, 20, 20, 0.5) 0%, transparent 100%);
-}
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .genre-section h2 {
@@ -190,7 +95,7 @@ main {
   left: 0;
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, #d4af37, transparent);
+  background-color: #d4af37;
 }
 
 /* ---------- BOOK SHELVES ---------- */
@@ -198,28 +103,11 @@ main {
   display: flex;
   gap: 30px;
   overflow-x: auto;
-  padding: 30px 30px;
+  padding: 30px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-}
-
-.book-shelf::-webkit-scrollbar {
-  height: 8px;
-}
-
-.book-shelf::-webkit-scrollbar-track {
-  background: #1a1a1a;
-  border-radius: 10px;
-}
-
-.book-shelf::-webkit-scrollbar-thumb {
-  background: #d4af37;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.book-shelf::-webkit-scrollbar-thumb:hover {
-  background: #e0d6c3;
+  scrollbar-width: thin;
+  scrollbar-color: #d4af37 #1a1a1a;
 }
 
 /* ---------- 3D FLIP CARDS ---------- */
@@ -232,16 +120,13 @@ main {
 }
 
 .card-inner {
-  position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
+.card:hover .card-inner { transform: rotateY(180deg); }
 
 .card-front,
 .card-back {
@@ -249,7 +134,6 @@ main {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -258,30 +142,12 @@ main {
   padding: 15px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(212, 175, 55, 0.3);
-  transition: all 0.3s ease;
 }
 
+/* Front side */
 .card-front {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background-color: #1a1a1a;
   color: #d4af37;
-}
-
-.card-front::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, #d4af37, #a67c52, #d4af37);
-  border-radius: 15px;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover .card-front::before {
-  opacity: 0.3;
 }
 
 .card-front img {
@@ -303,174 +169,59 @@ main {
   font-size: 16px;
   margin: 8px 0 4px;
   text-align: center;
-  line-height: 1.3;
 }
 
 .card-front p {
   color: #bca46d;
   font-size: 13px;
-  margin: 0;
 }
 
+/* Back side */
 .card-back {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  background-color: #2a2a2a;
   color: #e0d6c3;
   transform: rotateY(180deg);
   padding: 20px;
   text-align: center;
-  justify-content: space-between;
 }
 
 .card-back h4 {
   color: #d4af37;
   font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0 0 6px 0;
+  margin-bottom: 5px;
 }
 
 .card-back p {
   font-size: 12px;
-  margin: 0 0 12px 0;
   line-height: 1.4;
 }
 
 .card-back .stars {
   color: #d4af37;
   font-size: 16px;
-  margin-top: auto;
   letter-spacing: 2px;
-}
-
-/* ---------- LINKS ---------- */
-a {
-  color: #c9a961;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #c9a961;
-  transition: width 0.3s ease;
-}
-
-a:hover {
-  color: #e0d6c3;
-}
-
-a:hover::after {
-  width: 100%;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-  background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-  color: #d4af37;
-  text-align: center;
-  padding: 30px;
-  border-top: 3px solid #d4af37;
-  margin-top: 60px;
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
-}
-
-footer a {
-  color: #c9a961;
-}
-
-footer a:hover {
-  color: #e0d6c3;
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 1024px) {
-  .book-shelf {
-    gap: 20px;
-  }
-
-  header h1 {
-    font-size: 28px;
-  }
+  .book-shelf { gap: 20px; }
+  .genre-section h2 { font-size: 28px; }
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  .category-bar {
-    gap: 10px;
-    padding: 12px 15px;
-  }
-
-  .category-bar a {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .book-shelf {
-    gap: 15px;
-    padding: 20px 15px;
-  }
-
-  .card {
-    flex: 0 0 180px;
-    height: 300px;
-  }
-
-  .card-front img {
-    width: 130px;
-    height: 190px;
-  }
-
-  .genre-section h2 {
-    font-size: 24px;
-    margin-left: 15px;
-  }
+  .category-bar { gap: 10px; padding: 12px 15px; }
+  .category-bar a { padding: 6px 12px; font-size: 12px; }
+  .book-shelf { gap: 15px; padding: 20px; }
+  .card { flex: 0 0 180px; height: 300px; }
+  .card-front img { width: 130px; height: 190px; }
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 20px;
-  }
-
-  nav {
-    gap: 10px;
-    font-size: 12px;
-  }
-
-  .card {
-    flex: 0 0 160px;
-    height: 280px;
-  }
-
-  .card-front img {
-    width: 110px;
-    height: 160px;
-  }
-
-  .category-bar {
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .category-bar a {
-    padding: 5px 10px;
-    font-size: 11px;
-  }
-
-  .genre-section {
-    padding: 40px 0;
-  }
-
-  .genre-section h2 {
-    font-size: 20px;
-    margin-left: 10px;
-  }
+  .category-bar { gap: 8px; padding: 10px; }
+  .category-bar a { padding: 5px 10px; font-size: 11px; }
+  .genre-section { padding: 40px 0; }
+  .genre-section h2 { font-size: 20px; margin-left: 10px; }
+  .card { flex: 0 0 160px; height: 280px; }
+  .card-front img { width: 110px; height: 160px; }
 }

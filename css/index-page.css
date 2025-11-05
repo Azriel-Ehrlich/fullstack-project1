@@ -21,10 +21,14 @@
 }
 
 .gif {
-  width: 220px;
-  margin-top: 20px;
-  animation: float 2s ease-in-out infinite;
+  width: 320px;         
+  max-width: 90%;        
+  margin-top: 25px;
+  border-radius: 10px;
+  animation: float 3s ease-in-out infinite;
 }
+
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }

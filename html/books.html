@@ -4,480 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BookVerse – Books by Genre</title>
-  <style>
-    /* ============================================== */
-    /*  BOOKVERSE – ENHANCED BOOKS PAGE (HTML+CSS)   */
-    /* ============================================== */
-
-    /* ---------- GLOBAL ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-      color: #e0d6c3;
-      font-family: 'Georgia', serif;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ---------- HEADER & NAVIGATION ---------- */
-    header {
-      background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-      color: #d4af37;
-      text-align: center;
-      padding: 30px 20px;
-      border-bottom: 3px solid #d4af37;
-      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
-      position: relative;
-      z-index: 10;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-      letter-spacing: 2px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #e0d6c3;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #d4af37;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #d4af37;
-      transform: translateY(-2px);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* ---------- STICKY CATEGORY BAR ---------- */
-    .category-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: linear-gradient(90deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.95) 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid #d4af37;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .category-bar a {
-      color: #d4af37;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 18px;
-      border: 1px solid #d4af37;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .category-bar a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: #d4af37;
-      z-index: -1;
-      transition: left 0.3s ease;
-    }
-
-    .category-bar a:hover {
-      color: #0d0d0d;
-      transform: scale(1.05);
-    }
-
-    .category-bar a:hover::before {
-      left: 0;
-    }
-
-    /* ---------- MAIN CONTENT ---------- */
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* ---------- GENRE SECTIONS ---------- */
-    .genres {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .genre-section {
-      padding: 60px 0;
-      border-bottom: 2px solid #333;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .genre-section.alt {
-      background: linear-gradient(90deg, rgba(20, 20, 20, 0.5) 0%, transparent 100%);
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .genre-section h2 {
-      color: #d4af37;
-      font-size: 32px;
-      margin-left: 30px;
-      margin-bottom: 30px;
-      position: relative;
-      display: inline-block;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .genre-section h2::before {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, #d4af37, transparent);
-    }
-
-    /* ---------- BOOK SHELVES ---------- */
-    .book-shelf {
-      display: flex;
-      gap: 30px;
-      overflow-x: auto;
-      padding: 30px 30px;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-    }
-
-    .book-shelf::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .book-shelf::-webkit-scrollbar-track {
-      background: #1a1a1a;
-      border-radius: 10px;
-    }
-
-    .book-shelf::-webkit-scrollbar-thumb {
-      background: #d4af37;
-      border-radius: 10px;
-      transition: background 0.3s;
-    }
-
-    .book-shelf::-webkit-scrollbar-thumb:hover {
-      background: #e0d6c3;
-    }
-
-    /* ---------- 3D FLIP CARDS ---------- */
-    .card {
-      flex: 0 0 220px;
-      height: 340px;
-      perspective: 1200px;
-      scroll-snap-align: start;
-      position: relative;
-    }
-
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      transform-style: preserve-3d;
-    }
-
-    .card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front,
-    .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .card-front {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-      color: #d4af37;
-    }
-
-    .card-front::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, #d4af37, #a67c52, #d4af37);
-      border-radius: 15px;
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.3s ease;
-    }
-
-    .card:hover .card-front::before {
-      opacity: 0.3;
-    }
-
-    .card-front img {
-      width: 160px;
-      height: 230px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-      transition: transform 0.3s ease, filter 0.3s ease;
-      object-fit: cover;
-    }
-
-    .card:hover .card-front img {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-    }
-
-    .card-front h3 {
-      font-size: 16px;
-      margin: 8px 0 4px;
-      text-align: center;
-      line-height: 1.3;
-    }
-
-    .card-front p {
-      color: #bca46d;
-      font-size: 13px;
-      margin: 0;
-    }
-
-    .card-back {
-      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-      color: #e0d6c3;
-      transform: rotateY(180deg);
-      padding: 20px;
-      text-align: center;
-      justify-content: space-between;
-    }
-
-    .card-back h4 {
-      color: #d4af37;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 0 0 6px 0;
-    }
-
-    .card-back p {
-      font-size: 12px;
-      margin: 0 0 12px 0;
-      line-height: 1.4;
-    }
-
-    .card-back .stars {
-      color: #d4af37;
-      font-size: 16px;
-      margin-top: auto;
-      letter-spacing: 2px;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-      color: #d4af37;
-      text-align: center;
-      padding: 30px;
-      border-top: 3px solid #d4af37;
-      margin-top: 60px;
-      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    footer a {
-      color: #d4af37;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    footer a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #d4af37;
-      transition: width 0.3s ease;
-    }
-
-    footer a:hover::after {
-      width: 100%;
-    }
-
-    /* ---------- RESPONSIVE DESIGN ---------- */
-    @media (max-width: 1024px) {
-      .book-shelf {
-        gap: 20px;
-      }
-
-      header h1 {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 24px;
-      }
-
-      .category-bar {
-        gap: 10px;
-        padding: 12px 15px;
-      }
-
-      .category-bar a {
-        padding: 6px 12px;
-        font-size: 12px;
-      }
-
-      .book-shelf {
-        gap: 15px;
-        padding: 20px 15px;
-      }
-
-      .card {
-        flex: 0 0 180px;
-        height: 300px;
-      }
-
-      .card-front img {
-        width: 130px;
-        height: 190px;
-      }
-
-      .genre-section h2 {
-        font-size: 24px;
-        margin-left: 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 20px;
-      }
-
-      nav {
-        gap: 10px;
-        font-size: 12px;
-      }
-
-      .card {
-        flex: 0 0 160px;
-        height: 280px;
-      }
-
-      .card-front img {
-        width: 110px;
-        height: 160px;
-      }
-
-      .category-bar {
-        gap: 8px;
-        padding: 10px;
-      }
-
-      .category-bar a {
-        padding: 5px 10px;
-        font-size: 11px;
-      }
-
-      .genre-section {
-        padding: 40px 0;
-      }
-
-      .genre-section h2 {
-        font-size: 20px;
-        margin-left: 10px;
-      }
-    }
-  </style>
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="../css/books-page.css">
 </head>
 <body>
   <header>
     <h1>Our Library by Genre</h1>
     <nav>
-      <a href="#fiction">Home</a>
-      <a href="#books">Books</a>
-      <a href="#submit">Submit</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -486,11 +26,12 @@
     <a href="#fantasy">Fantasy</a>
     <a href="#drama">Drama</a>
     <a href="#thriller">Thriller</a>
-    <a href="#romance">Romance</a>
+    <a href="#scifi">Science Fiction</a>
     <a href="#nonfiction">Non-Fiction</a>
   </nav>
 
   <main class="genres">
+
     <!-- FICTION -->
     <section id="fiction" class="genre-section">
       <h2>Fiction</h2>
@@ -498,54 +39,59 @@
         <div class="card">
           <div class="card-inner">
             <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/7878515-M.jpg" alt="1984">
-              <h3>1984</h3>
-              <p>George Orwell</p>
+              <img src="../media/images/1984.jpg" alt="1984">
+              <h3>1984</h3><p>George Orwell</p>
             </div>
             <div class="card-back">
               <div>
-                <h4>Description</h4>
-                <p>Dystopian classic of truth and control.</p>
-                <h4>Review</h4>
-                <p>Still prophetic and unsettling.</p>
-              </div>
-              <p class="stars">★★★★★</p>
+                <h4>Description</h4><p>Dystopian classic of truth and control.</p>
+                <h4>Review</h4><p>Still prophetic and unsettling.</p>
+              </div><p class="stars">★★★★★</p>
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-inner">
             <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8235688-M.jpg" alt="The Great Gatsby">
-              <h3>The Great Gatsby</h3>
-              <p>F. Scott Fitzgerald</p>
+              <img src="../media/images/the_great_gatsby.png" alt="The Great Gatsby">
+              <h3>The Great Gatsby</h3><p>F. Scott Fitzgerald</p>
             </div>
             <div class="card-back">
               <div>
-                <h4>Description</h4>
-                <p>Tragic love and illusion of wealth.</p>
-                <h4>Review</h4>
-                <p>Lyrical, symbolic, unforgettable.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
+                <h4>Description</h4><p>Tragic love and illusion of wealth.</p>
+                <h4>Review</h4><p>Lyrical, symbolic, unforgettable.</p>
+              </div><p class="stars">★★★★☆</p>
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-inner">
             <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/7878515-M.jpg" alt="Animal Farm">
-              <h3>Animal Farm</h3>
-              <p>George Orwell</p>
+              <img src="../media/images/brave_new_world.jpg" alt="Brave New World">
+              <h3>Brave New World</h3><p>Aldous Huxley</p>
             </div>
             <div class="card-back">
               <div>
-                <h4>Description</h4>
-                <p>Political satire of revolution.</p>
-                <h4>Review</h4>
-                <p>Short, sharp, timeless.</p>
-              </div>
-              <p class="stars">★★★★★</p>
+                <h4>Description</h4><p>Futuristic society of control and comfort.</p>
+                <h4>Review</h4><p>Darkly visionary and thought-provoking.</p>
+              </div><p class="stars">★★★★★</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="../media/images/catch_22.jpg" alt="Catch-22">
+              <h3>Catch-22</h3><p>Joseph Heller</p>
+            </div>
+            <div class="card-back">
+              <div>
+                <h4>Description</h4><p>Absurdity of war and bureaucracy.</p>
+                <h4>Review</h4><p>Funny, tragic, brilliantly ironic.</p>
+              </div><p class="stars">★★★★☆</p>
             </div>
           </div>
         </div>
@@ -553,63 +99,28 @@
     </section>
 
     <!-- FANTASY -->
-    <section id="fantasy" class="genre-section alt">
+    <section id="fantasy" class="genre-section">
       <h2>Fantasy</h2>
       <div class="book-shelf">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406786-M.jpg" alt="The Hobbit">
-              <h3>The Hobbit</h3>
-              <p>J.R.R. Tolkien</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Bilbo's grand adventure across Middle-earth.</p>
-                <h4>Review</h4>
-                <p>Charming, witty, endlessly rereadable.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8235786-M.jpg" alt="Harry Potter">
-              <h3>Harry Potter 1</h3>
-              <p>J.K. Rowling</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Boy discovers a world of magic and destiny.</p>
-                <h4>Review</h4>
-                <p>Pure wonder for readers of any age.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406800-M.jpg" alt="Mistborn">
-              <h3>Mistborn</h3>
-              <p>Brandon Sanderson</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Rebels battle an immortal tyrant with metal magic.</p>
-                <h4>Review</h4>
-                <p>Smart, original, thrilling.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
-        </div>
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/the_hobbit.jpg" alt="The Hobbit">
+          <h3>The Hobbit</h3><p>J.R.R. Tolkien</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Bilbo’s grand adventure across Middle-earth.</p><h4>Review</h4><p>Charming and timeless.</p></div><p class="stars">★★★★★</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/harry_potter1.jpg" alt="Harry Potter 1">
+          <h3>Harry Potter and the Sorcerer’s Stone</h3><p>J.K. Rowling</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Boy discovers world of magic and destiny.</p><h4>Review</h4><p>Magical for all ages.</p></div><p class="stars">★★★★★</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/mistborn.jpg" alt="Mistborn">
+          <h3>Mistborn</h3><p>Brandon Sanderson</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Rebels battle tyrant with metal magic.</p><h4>Review</h4><p>Smart and thrilling.</p></div><p class="stars">★★★★☆</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/the_name_of_the_wind.jpg" alt="The Name of the Wind">
+          <h3>The Name of the Wind</h3><p>Patrick Rothfuss</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>A gifted young man’s coming-of-age tale.</p><h4>Review</h4><p>Beautifully written epic fantasy.</p></div><p class="stars">★★★★★</p></div></div></div>
       </div>
     </section>
 
@@ -617,244 +128,210 @@
     <section id="drama" class="genre-section">
       <h2>Drama</h2>
       <div class="book-shelf">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8235756-M.jpg" alt="To Kill a Mockingbird">
-              <h3>To Kill a Mockingbird</h3>
-              <p>Harper Lee</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Race and morality in the Deep South.</p>
-                <h4>Review</h4>
-                <p>Profound and moving.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406850-M.jpg" alt="A Little Life">
-              <h3>A Little Life</h3>
-              <p>Hanya Yanagihara</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Friendship and trauma spanning decades.</p>
-                <h4>Review</h4>
-                <p>Devastating, powerful storytelling.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406860-M.jpg" alt="The Kite Runner">
-              <h3>The Kite Runner</h3>
-              <p>Khaled Hosseini</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Betrayal and redemption in Afghanistan.</p>
-                <h4>Review</h4>
-                <p>Heartfelt and unforgettable.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
-        </div>
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/to_kill_a_mockingbird.jpg" alt="To Kill a Mockingbird">
+          <h3>To Kill a Mockingbird</h3><p>Harper Lee</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Race and morality in the Deep South.</p><h4>Review</h4><p>Profound and moving.</p></div><p class="stars">★★★★★</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/a_little_life.jpg" alt="A Little Life">
+          <h3>A Little Life</h3><p>Hanya Yanagihara</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Friendship and trauma spanning decades.</p><h4>Review</h4><p>Heartbreaking and powerful.</p></div><p class="stars">★★★★☆</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/kite_runner.jpg" alt="The Kite Runner">
+          <h3>The Kite Runner</h3><p>Khaled Hosseini</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Betrayal and redemption in Afghanistan.</p><h4>Review</h4><p>Deeply emotional.</p></div><p class="stars">★★★★★</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/color_purple.jpg" alt="The Color Purple">
+          <h3>The Color Purple</h3><p>Alice Walker</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Story of resilience and sisterhood.</p><h4>Review</h4><p>Raw and empowering.</p></div><p class="stars">★★★★★</p></div></div></div>
       </div>
     </section>
 
     <!-- THRILLER -->
-    <section id="thriller" class="genre-section alt">
+    <section id="thriller" class="genre-section">
       <h2>Thriller</h2>
       <div class="book-shelf">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406920-M.jpg" alt="The Silent Patient">
-              <h3>The Silent Patient</h3>
-              <p>Alex Michaelides</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Psychological mystery of silence.</p>
-                <h4>Review</h4>
-                <p>Twists until the very last page.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406930-M.jpg" alt="Gone Girl">
-              <h3>Gone Girl</h3>
-              <p>Gillian Flynn</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>A missing wife and unreliable husband.</p>
-                <h4>Review</h4>
-                <p>Dark, clever, addictive.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406940-M.jpg" alt="The Girl with the Dragon Tattoo">
-              <h3>The Girl with the Dragon Tattoo</h3>
-              <p>Stieg Larsson</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Journalist and hacker uncover secrets.</p>
-                <h4>Review</h4>
-                <p>Gripping and atmospheric.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
-        </div>
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/silent_patient.jpg" alt="The Silent Patient">
+          <h3>The Silent Patient</h3><p>Alex Michaelides</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Psychological mystery of silence.</p><h4>Review</h4><p>Twisty and chilling.</p></div><p class="stars">★★★★☆</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/gone_girl.jpg" alt="Gone Girl">
+          <h3>Gone Girl</h3><p>Gillian Flynn</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>A missing wife and unreliable husband.</p><h4>Review</h4><p>Dark and addictive.</p></div><p class="stars">★★★★★</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/girl_with_dragon_tattoo.jpg" alt="The Girl with the Dragon Tattoo">
+          <h3>The Girl with the Dragon Tattoo</h3><p>Stieg Larsson</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Journalist and hacker uncover secrets.</p><h4>Review</h4><p>Gripping and layered.</p></div><p class="stars">★★★★☆</p></div></div></div>
+
+        <div class="card"><div class="card-inner"><div class="card-front">
+          <img src="../media/images/da_vinci_code.jpg" alt="The Da Vinci Code">
+          <h3>The Da Vinci Code</h3><p>Dan Brown</p></div>
+          <div class="card-back"><div><h4>Description</h4><p>Art, religion, and conspiracy collide.</p><h4>Review</h4><p>Fast-paced and iconic.</p></div><p class="stars">★★★★★</p></div></div></div>
       </div>
     </section>
 
-    <!-- ROMANCE -->
-    <section id="romance" class="genre-section">
-      <h2>Romance</h2>
-      <div class="book-shelf">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8235845-M.jpg" alt="Pride and Prejudice">
-              <h3>Pride and Prejudice</h3>
-              <p>Jane Austen</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Elizabeth Bennet meets her match in Darcy.</p>
-                <h4>Review</h4>
-                <p>Sharp, romantic, endlessly quotable.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
+    <!-- SCIENCE FICTION -->
+<section id="scifi" class="genre-section">
+  <h2>Science Fiction</h2>
+  <div class="book-shelf">
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/dune.jpg" alt="Dune">
+          <h3>Dune</h3><p>Frank Herbert</p>
         </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406950-M.jpg" alt="Me Before You">
-              <h3>Me Before You</h3>
-              <p>Jojo Moyes</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>A caregiver and patient find unexpected love.</p>
-                <h4>Review</h4>
-                <p>Touching and bittersweet.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4><p>Politics, prophecy, and power on desert world Arrakis.</p>
+            <h4>Review</h4><p>Visionary and immersive.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406960-M.jpg" alt="The Notebook">
-              <h3>The Notebook</h3>
-              <p>Nicholas Sparks</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Enduring love through time and memory.</p>
-                <h4>Review</h4>
-                <p>Classic tear-jerker romance.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
+          <p class="stars">★★★★★</p>
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/ender's_game.jpg" alt="Ender's Game">
+          <h3>Ender’s Game</h3><p>Orson Scott Card</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4><p>A gifted child trained through war games to save humanity.</p>
+            <h4>Review</h4><p>Brilliant mix of strategy and emotion.</p>
+          </div>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/neuromancer.jpg" alt="Neuromancer">
+          <h3>Neuromancer</h3><p>William Gibson</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4><p>Cyberpunk hacker pulled into a web of digital intrigue.</p>
+            <h4>Review</h4><p>Gritty and visionary.</p>
+          </div>
+          <p class="stars">★★★★☆</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/the_martian.jpg" alt="The Martian">
+          <h3>The Martian</h3><p>Andy Weir</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4><p>Stranded astronaut survives using science and humor.</p>
+            <h4>Review</h4><p>Smart, funny, and inspiring.</p>
+          </div>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- NON-FICTION -->
-    <section id="nonfiction" class="genre-section alt">
-      <h2>Non-Fiction</h2>
-      <div class="book-shelf">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406970-M.jpg" alt="Sapiens">
-              <h3>Sapiens</h3>
-              <p>Yuval Noah Harari</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Exploration of human evolution and culture.</p>
-                <h4>Review</h4>
-                <p>Fascinating, mind-broadening read.</p>
-              </div>
-              <p class="stars">★★★★☆</p>
-            </div>
-          </div>
+  <section id="nonfiction" class="genre-section">
+  <h2>Non-Fiction</h2>
+  <div class="book-shelf">
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/Sapiens.png" alt="Sapiens">
+          <h3>Sapiens</h3>
+          <p>Yuval Noah Harari</p>
         </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406980-M.jpg" alt="Educated">
-              <h3>Educated</h3>
-              <p>Tara Westover</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>A woman escapes her survivalist family.</p>
-                <h4>Review</h4>
-                <p>Raw and inspiring memoir.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4>
+            <p>Exploration of human evolution and culture.</p>
+            <h4>Review</h4>
+            <p>Insightful and fascinating.</p>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front">
-              <img src="https://covers.openlibrary.org/b/id/8406990-M.jpg" alt="Atomic Habits">
-              <h3>Atomic Habits</h3>
-              <p>James Clear</p>
-            </div>
-            <div class="card-back">
-              <div>
-                <h4>Description</h4>
-                <p>Practical guide to forming better habits.</p>
-                <h4>Review</h4>
-                <p>Actionable and motivating.</p>
-              </div>
-              <p class="stars">★★★★★</p>
-            </div>
-          </div>
+          <p class="stars">★★★★☆</p>
         </div>
       </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/educated.jpg" alt="Educated">
+          <h3>Educated</h3>
+          <p>Tara Westover</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4>
+            <p>Woman escapes her survivalist family.</p>
+            <h4>Review</h4>
+            <p>Raw and inspiring.</p>
+          </div>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/Atomic Habits.jpg" alt="Atomic Habits">
+          <h3>Atomic Habits</h3>
+          <p>James Clear</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4>
+            <p>Guide to forming better habits.</p>
+            <h4>Review</h4>
+            <p>Practical and motivating.</p>
+          </div>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../media/images/12_rules_for_life.jpg" alt="12 Rules for Life">
+          <h3>12 Rules for Life</h3>
+          <p>Jordan B. Peterson</p>
+        </div>
+        <div class="card-back">
+          <div>
+            <h4>Description</h4>
+            <p>A guide to life through twelve profound rules for meaning and responsibility.</p>
+            <h4>Review</h4>
+            <p>Smart, challenging, and thought-provoking.</p>
+          </div>
+          <p class="stars">★★★★★</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     </section>
   </main>
 
