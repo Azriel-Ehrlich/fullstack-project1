@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
   <!-- Global Styles -->
   <link rel="stylesheet" href="../css/style.css">
   <!-- Page-Specific Styles -->
-  <link rel="stylesheet" href="../css/form-pages.css">
+  <link rel="stylesheet" href="../css/form-page.css">
 </head>
 <body>
 <header>
@@ -25,23 +24,26 @@
 <main>
   <form>
     <h2>Share Your Thoughts</h2>
+    
     <label for="title">Book Title:</label>
-    <input type="text" id="title" required>
+    <input type="text" id="title" placeholder="Enter book title" required>
+
 
     <label for="name">Your Name:</label>
-    <input type="text" id="name">
+    <input type="text" id="name" placeholder="Your name (optional)">
 
     <label for="rating">Rating:</label>
-    <select id="rating">
-      <option>1 - Poor</option>
-      <option>2 - Fair</option>
-      <option>3 - Good</option>
-      <option>4 - Very Good</option>
+    <select id="rating" required>
+      <option value="">Select rating...</option>
       <option>5 - Excellent</option>
+      <option>4 - Very Good</option>
+      <option>3 - Good</option>
+      <option>2 - Fair</option>
+      <option>1 - Poor</option>
     </select>
 
     <label for="review">Your Review:</label>
-    <textarea id="review" rows="6" required></textarea>
+    <textarea id="review" rows="8" placeholder="Share your thoughts about this book..." required></textarea>
 
     <input type="submit" value="Submit Review">
   </form>
