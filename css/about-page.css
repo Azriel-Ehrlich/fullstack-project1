@@ -1,0 +1,295 @@
+/* ======================================= */
+/*   BOOKVERSE – ABOUT PAGE STYLES         */
+/*   Page-specific styles for about.html   */
+/* ======================================= */
+
+/* ---------- ABOUT CONTAINER ---------- */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-section {
+  margin-bottom: 60px;
+}
+
+.about-section h2 {
+  color: #d4af37;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #a67c52;
+  padding-bottom: 10px;
+}
+
+/* ---------- PROJECT OVERVIEW ---------- */
+.project-overview p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+/* ---------- COURSE INFO SECTION ---------- */
+.course-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.course-box {
+  background-color: #1a1a1a;
+  border: 2px solid #a67c52;
+  border-radius: 10px;
+  padding: 25px;
+  flex: 1 1 300px;
+  max-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-box h3 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.course-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* ---------- CREATORS SECTION ---------- */
+.creators-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.creator-card {
+  background-color: #1a1a1a;
+  border: 2px solid #a67c52;
+  border-radius: 15px;
+  padding: 30px;
+  flex: 1 1 400px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.creator-card:hover {
+  transform: scale(1.03);
+}
+
+.creator-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #d4af37;
+  margin-bottom: 20px;
+}
+
+.creator-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creator-info {
+  text-align: center;
+}
+
+.creator-info h3 {
+  color: #d4af37;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.creator-role {
+  color: #a67c52;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.creator-bio {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.creator-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.skill-tag {
+  background-color: #a67c52;
+  color: #0d0d0d;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: #d4af37;
+}
+
+/* ---------- FEATURES SECTION ---------- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-item {
+  background-color: #1a1a1a;
+  border: 1px solid #a67c52;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-item h4 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* ---------- ACKNOWLEDGMENTS ---------- */
+.acknowledgments p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.quote {
+  font-style: italic;
+  color: #a67c52;
+  border-left: 4px solid #d4af37;
+  padding-left: 20px;
+  margin-top: 30px;
+  font-size: 18px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 768px) {
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .project-overview p {
+    font-size: 16px;
+  }
+
+  .course-details {
+    gap: 20px;
+  }
+
+  .course-box {
+    flex: 1 1 280px;
+    max-width: 100%;
+  }
+
+  .creators-flex {
+    gap: 30px;
+  }
+
+  .creator-card {
+    flex: 1 1 350px;
+    max-width: 100%;
+  }
+
+  .creator-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .creator-info h3 {
+    font-size: 22px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 20px 10px;
+  }
+
+  .about-section {
+    margin-bottom: 40px;
+  }
+
+  .about-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .project-overview p {
+    font-size: 14px;
+  }
+
+  .course-details {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .course-box {
+    flex: 1 1 auto;
+  }
+
+  .creators-flex {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .creator-card {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .creator-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .creator-info h3 {
+    font-size: 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote {
+    font-size: 14px;
+    padding-left: 15px;
+  }
+}

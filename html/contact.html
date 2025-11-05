@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
+  <!-- Global Styles -->
   <link rel="stylesheet" href="../css/style.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="../css/form-pages.css">
 </head>
 <body>
 <header>
@@ -20,10 +23,13 @@
 
 <main>
   <form>
-    <label>Your Email:</label>
-    <input type="email" required><br>
-    <label>Message:</label><br>
-    <textarea rows="6" cols="50"></textarea><br>
+    <h2>Send us a Message</h2>
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" rows="6" required></textarea>
+
     <input type="submit" value="Send Message">
   </form>
 </main>
