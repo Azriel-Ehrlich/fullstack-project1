@@ -28,8 +28,6 @@
   animation: float 3s ease-in-out infinite;
 }
 
-
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -66,16 +64,20 @@
   margin-bottom: 30px;
 }
 
-.video iframe {
+.video video {
   width: 90%;
   max-width: 800px;
-  height: 450px;
+  aspect-ratio: 16 / 9;
   border-radius: 10px;
   box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.video iframe:hover {
+.video video:focus {
+  outline: none;
+}
+
+.video video:hover {
   transform: scale(1.02);
   box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
 }
@@ -115,10 +117,6 @@
     font-size: 24px;
   }
 
-  .video iframe {
-    height: 300px;
-  }
-
   .gif {
     width: 180px;
   }
@@ -156,10 +154,6 @@
 
   .video h2 {
     font-size: 20px;
-  }
-
-  .video iframe {
-    height: 200px;
   }
 
   .gif {
