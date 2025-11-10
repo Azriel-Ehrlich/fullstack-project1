@@ -1,0 +1,100 @@
+/* ======================================= */
+/*   BOOKVERSE – CONTACT PAGE STYLES       */
+/*   Page-specific styles for contact.html */
+/* ======================================= */
+
+/* ---------- FORM SECTION ---------- */
+.form-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.form-section h2 {
+  color: #d4af37;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #a67c52;
+  padding-bottom: 10px;
+}
+
+.form-description {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.form-wrapper {
+  background-color: #1a1a1a;
+  border: 2px solid #a67c52;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.form-wrapper:hover {
+  border-color: #d4af37;
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+  transform: translateY(-5px);
+}
+
+.form-wrapper iframe {
+  border-radius: 10px;
+  display: block;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .form-section {
+    margin: 30px auto;
+    padding: 30px 15px;
+  }
+
+  .form-section h2 {
+    font-size: 24px;
+  }
+
+  .form-description {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .form-wrapper {
+    padding: 20px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .form-section {
+    margin: 20px auto;
+    padding: 20px 10px;
+  }
+
+  .form-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .form-wrapper {
+    padding: 15px;
+    border-width: 1px;
+  }
+
+  .form-wrapper iframe {
+    height: 600px !important;
+    border-radius: 8px;
+  }
+}
