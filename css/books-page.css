@@ -106,13 +106,13 @@ body {
   overflow-x: auto;
   padding: 30px;
   scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #d4af37 #1a1a1a;
 }
 
 /* ---------- 3D FLIP CARDS ---------- */
 .card {
+  display: grid;
   flex: 0 0 220px;
   height: 340px;
   perspective: 1200px;
