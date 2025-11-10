@@ -112,7 +112,6 @@ body {
 
 /* ---------- 3D FLIP CARDS ---------- */
 .card {
-  display: grid;
   flex: 0 0 220px;
   height: 340px;
   perspective: 1200px;
