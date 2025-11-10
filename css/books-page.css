@@ -106,6 +106,7 @@ body {
   overflow-x: auto;
   padding: 30px;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #d4af37 #1a1a1a;
 }
@@ -122,7 +123,7 @@ body {
 .card-inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.8s ease;
   transform-style: preserve-3d;
 }
 
@@ -138,8 +139,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 15px;
+  padding-top: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
@@ -158,6 +160,7 @@ body {
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
   transition: transform 0.3s ease, filter 0.3s ease;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .card:hover .card-front img {
@@ -166,14 +169,25 @@ body {
 }
 
 .card-front h3 {
-  font-size: 16px;
+  font-size: 14px;
   margin: 8px 0 4px;
   text-align: center;
+  line-height: 1.2;
+  max-height: 3.6em;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 5px;
 }
 
 .card-front p {
   color: #bca46d;
   font-size: 13px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  padding: 0 5px;
 }
 
 /* Back side */
@@ -183,6 +197,7 @@ body {
   transform: rotateY(180deg);
   padding: 20px;
   text-align: center;
+  justify-content: space-between;
 }
 
 .card-back h4 {
@@ -204,10 +219,7 @@ body {
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
-@media (max-width: 1024px) {
-  .book-shelf { gap: 20px; }
-  .genre-section h2 { font-size: 28px; }
-}
+
 
 @media (max-width: 768px) {
   .category-bar { gap: 10px; padding: 12px 15px; }

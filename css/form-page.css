@@ -8,7 +8,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
 }
 
 form {
@@ -101,8 +100,9 @@ form input[type="submit"]:active {
 
   form {
     padding: 35px;
-    max-width: 100%;
+    max-width: 600px;
     margin: 30px 20px;
+    
   }
 
   form h2 {
@@ -159,3 +159,4 @@ form input[type="submit"]:active {
     margin-top: 15px;
   }
 }
+
