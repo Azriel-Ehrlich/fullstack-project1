@@ -50,6 +50,40 @@ a:hover::after {
   width: 100%;
 }
 
+/* ---------- LOGO ---------- */
+.logo-container {
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Subtle magical sparkle effect on hover */
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8))
+          brightness(1.2);
+}
+
+/* Optional: small glow animation (sparkle pulse) */
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.9)); }
+}
+
+.logo {
+  animation: logoGlow 3s infinite ease-in-out;
+}
+
+
 /* ---------- HEADER & NAV ---------- */
 header {
   background-color: #1a1a1a;
