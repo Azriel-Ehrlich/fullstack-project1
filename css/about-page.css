@@ -32,13 +32,15 @@
   margin: 0 auto 20px;
 }
 
-/* ---------- COURSE INFO SECTION ---------- */
+/* ---------- COURSE INFO SECTION (CENTERED GRID) ---------- */
 .course-details {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
-  justify-content: center;
   margin-top: 30px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-box {
@@ -46,8 +48,6 @@
   border: 2px solid #a67c52;
   border-radius: 10px;
   padding: 25px;
-  flex: 1 1 300px;
-  max-width: 350px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -61,13 +61,16 @@
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
 }
 
-/* ---------- CREATORS SECTION ---------- */
+/* ---------- CREATORS SECTION (CENTERED GRID) ---------- */
 .creators-flex {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
-  justify-content: center;
   margin-top: 40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
 }
 
 .creator-card {
@@ -75,8 +78,8 @@
   border: 2px solid #a67c52;
   border-radius: 15px;
   padding: 30px;
-  flex: 1 1 400px;
   max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -205,21 +208,13 @@
   }
 
   .course-details {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
 
-  .course-box {
-    flex: 1 1 280px;
-    max-width: 100%;
-  }
-
   .creators-flex {
+    grid-template-columns: 1fr;
     gap: 30px;
-  }
-
-  .creator-card {
-    flex: 1 1 350px;
-    max-width: 100%;
   }
 
   .creator-image {
@@ -255,24 +250,13 @@
   }
 
   .course-details {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  .course-box {
-    flex: 1 1 auto;
-  }
-
   .creators-flex {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 20px;
-    align-items: center;
-  }
-
-  .creator-card {
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 400px;
   }
 
   .creator-image {
