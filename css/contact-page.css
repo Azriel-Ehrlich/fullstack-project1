@@ -187,6 +187,12 @@
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
 }
+.cta-button a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 0;
+}
 
 
 /* ---------- RESPONSIVE DESIGN ---------- */
