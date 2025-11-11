@@ -16,11 +16,11 @@
 
 /* ---------- LEFT SIDE: CONTACT INFO ---------- */
 .contact-info {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: #2a2a2a;
   border-radius: 20px;
   padding: 40px;
   border: 2px solid #a67c52;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 40px #1a1a1a;
 }
 
 
@@ -49,7 +49,7 @@
 }
 
 .info-card {
-  background: rgba(42, 42, 42, 0.6);
+  background: #3a3838;
   border: 1px solid #a67c52;
   border-radius: 15px;
   padding: 25px;
@@ -58,7 +58,7 @@
 }
 
 .info-card:hover {
-  background: rgba(42, 42, 42, 0.9);
+  background: #2f2d2d;
   border-color: #d4af37;
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
@@ -113,11 +113,11 @@
 
 /* ---------- RIGHT SIDE: FORM SECTION ---------- */
 .contact-form-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  background: #2a2a2a;
   border-radius: 20px;
   padding: 40px;
   border: 2px solid #a67c52;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 40px #1a1a1a;
 }
 
 .form-header {
@@ -142,7 +142,7 @@
 }
 
 .form-container {
-  background: rgba(26, 26, 26, 0.6);
+  background: #3a3838;
   border-radius: 15px;
   padding: 20px;
   border: 1px solid #a67c52;
@@ -150,13 +150,14 @@
 }
 
 .form-container iframe {
+  background: #3a3838;
   border-radius: 10px;
   display: block;
   width: 100%;
 }
 
 
-.cta-content h3 {
+.join-community-content h3 {
   font-size: 36px;
   color: #d4af37;
   margin-bottom: 15px;
@@ -164,8 +165,7 @@
 }
 
 
-
-.cta-button {
+.button {
   background-color: #a67c52;
   color: #0d0d0d;
   cursor: pointer;
@@ -182,16 +182,10 @@
   margin-right: auto;
 }
 
-.cta-button:hover {
+.button:hover {
   background-color: #d4af37;
   transform: scale(1.05);
   box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-}
-.cta-button a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 0;
 }
 
 
