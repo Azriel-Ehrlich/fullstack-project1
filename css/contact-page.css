@@ -35,9 +35,8 @@
 .info-description {
   font-size: 16px;
   line-height: 1.8;
-  color: #e0d6c3;
+  color: #e0c8c8e1;
   margin-bottom: 35px;
-  opacity: 0.9;
 }
 
 /* ---------- INFO CARDS ---------- */
@@ -76,12 +75,11 @@
   font-size: 14px;
   color: #e0d6c3;
   margin: 5px 0;
-  line-height: 1.6;
 }
 
 .card-subtext {
   font-size: 12px;
-  color: #c9a961;
+  color: #e0d6c3;
   font-style: italic;
   margin-top: 8px;
 }
@@ -94,7 +92,7 @@
 }
 
 .social-links a {
-  color: #c9a961;
+  color: #e0d6c3;
   font-size: 14px;
   transition: all 0.3s ease;
 }
@@ -104,12 +102,6 @@
   transform: scale(1.2);
   transition: transform 0.3s ease, color 0.3s ease;}
 
-.social-links a::after {
-  content: '';
-  left: 0;
-  width: 0;
-  background: #c9a961;
-}
 
 /* ---------- RIGHT SIDE: FORM SECTION ---------- */
 .contact-form-section {
@@ -137,8 +129,6 @@
 .form-header p {
   font-size: 15px;
   color: #e0d6c3;
-  opacity: 0.9;
-  line-height: 1.6;
 }
 
 .form-container {
@@ -150,7 +140,6 @@
 }
 
 .form-container iframe {
-  background: #3a3838;
   border-radius: 10px;
   display: block;
   width: 100%;
@@ -168,9 +157,7 @@
 .button {
   background-color: #a67c52;
   color: #0d0d0d;
-  cursor: pointer;
   font-weight: bold;
-  border: none;
   padding: 12px 30px;
   font-size: 16px;
   border-radius: 5px;
@@ -178,8 +165,7 @@
   margin-top: 20px;
   width: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+
 }
 
 .button:hover {
@@ -245,15 +231,12 @@
     gap: 15px;
   }
 
-  .cta-section {
-    padding: 40px 30px;
-  }
 
-  .cta-content h3 {
+  .join-community-content h3 {
     font-size: 28px;
   }
 
-  .cta-content p {
+  .join-community-content p {
     font-size: 16px;
   }
 
@@ -331,20 +314,20 @@
     font-size: 14px;
   }
 
-  .cta-section {
+  .join-community-section {
     padding: 30px 20px;
     margin-bottom: 40px;
   }
 
-  .cta-content h3 {
+  .join-community-content h3 {
     font-size: 24px;
   }
 
-  .cta-content p {
+  .join-community-content p {
     font-size: 14px;
   }
 
-  .cta-button {
+  .button {
     padding: 12px 30px;
     font-size: 14px;
   }
@@ -373,7 +356,7 @@
     font-size: 20px;
   }
 
-  .cta-content h3 {
+  .join-community-content h3 {
     font-size: 20px;
   }
 
