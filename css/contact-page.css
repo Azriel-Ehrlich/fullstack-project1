@@ -1,49 +1,48 @@
 /* ======================================= */
 /*   BOOKVERSE – CONTACT PAGE REDESIGN     */
-/*   Modern, elegant contact page styles   */
+/*    contact page styles   */
 /* ======================================= */
 
 
 /* ---------- SPLIT LAYOUT CONTAINER ---------- */
 .contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
-  max-width: 1400px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
+  display: grid; /* Two-column grid layout */
+  grid-template-columns: 1fr 1.2fr; 
+  gap: 40px; /* Space between columns */
+  max-width: 1400px; 
+  margin: 0 auto 60px; /* Centers layout horizontally + bottom space */
+  padding: 0 20px; /* Page side spacing */
 }
 
 /* ---------- LEFT SIDE: CONTACT INFO ---------- */
 .contact-info {
   background: #2a2a2a;
-  border-radius: 20px;
+  border-radius: 20px; /* Rounded card edges */
   padding: 40px;
-  border: 2px solid #a67c52;
-  box-shadow: 0 10px 40px #1a1a1a;
+  border: 2px solid #a67c52; 
+  box-shadow: 0 10px 40px #1a1a1a; 
 }
-
 
 .info-content h3 {
   font-size: 32px;
   color: #d4af37;
   margin-bottom: 15px;
-  border-bottom: 2px solid #a67c52;
-  padding-bottom: 15px;
+  border-bottom: 2px solid #a67c52; /* Decorative underline */
+  padding-bottom: 15px; /* Spacing above underline */
 }
 
 .info-description {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.8; 
   color: #e0c8c8e1;
   margin-bottom: 35px;
 }
 
 /* ---------- INFO CARDS ---------- */
 .info-cards {
-  display: flex;
+  display: flex; /* Vertical stacked cards */
   flex-direction: column;
-  gap: 20px;
+  gap: 20px; /* Space between cards */
   margin-bottom: 35px;
 }
 
@@ -53,16 +52,15 @@
   border-radius: 15px;
   padding: 25px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Hover animation */
 }
 
 .info-card:hover {
-  background: #2f2d2d;
-  border-color: #d4af37;
-  transform: translateY(-5px);
+  background: #2f2d2d; /* Slightly darker on hover */
+  border-color: #d4af37; 
+  transform: translateY(-5px); /* Lift effect */
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
 }
-
 
 .info-card h4 {
   font-size: 18px;
@@ -86,7 +84,7 @@
 
 .social-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Vertical arrangement */
   gap: 8px;
   margin-top: 10px;
 }
@@ -94,13 +92,14 @@
 .social-links a {
   color: #e0d6c3;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Smooth hover */
 }
 
 .social-links a:hover {
-  color: #d4af37;
-  transform: scale(1.2);
-  transition: transform 0.3s ease, color 0.3s ease;}
+  color: #d4af37; /* Gold hover */
+  transform: scale(1.2); /* Small zoom */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
 
 /* ---------- RIGHT SIDE: FORM SECTION ---------- */
@@ -116,7 +115,7 @@
   text-align: center;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #a67c52;
+  border-bottom: 2px solid #a67c52; /* Divider under header */
 }
 
 .form-header h3 {
@@ -136,15 +135,14 @@
   border-radius: 15px;
   padding: 20px;
   border: 1px solid #a67c52;
-  overflow: hidden;
+  overflow: hidden; /* Ensures iframe fits inside rounded edges */
 }
 
 .form-container iframe {
-  border-radius: 10px;
+  border-radius: 10px; /* Rounded embedded form */
   display: block;
-  width: 100%;
+  width: 100%; 
 }
-
 
 .join-community-content h3 {
   font-size: 36px;
@@ -152,7 +150,6 @@
   margin-bottom: 15px;
   font-weight: 700;
 }
-
 
 .button {
   background-color: #a67c52;
@@ -164,73 +161,47 @@
   transition: all 0.3s ease;
   margin-top: 20px;
   width: auto;
-  display: block;
-
+  display: block; /* Forces button to start on its own line */
 }
 
 .button:hover {
-  background-color: #d4af37;
-  transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+  background-color: #d4af37;/* Brighter gold on hover */
+  transform: scale(1.05);/* Slight zoom on hover */
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);/* Glow effect */
 }
 
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 
-/* Large Tablets (1024px and below) */
+/* Large Tablets size */
 @media (max-width: 1024px) {
   .contact-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stacks sections vertically */
     gap: 30px;
   }
 
-  .hero-title {
-    font-size: 38px;
-  }
-
-  .hero-quote {
-    font-size: 20px;
-  }
-
   .info-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two columns on large tablets */
   }
 }
 
-/* Tablets (768px and below) */
+/* Tablets size */
 @media (max-width: 768px) {
-  .contact-hero {
-    padding: 60px 20px;
-    margin-bottom: 40px;
-  }
-
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-quote {
-    font-size: 18px;
-  }
-
-  .hero-author {
-    font-size: 14px;
-  }
 
   .contact-info,
   .contact-form-section {
-    padding: 30px 20px;
+    padding: 30px 20px; /* Smaller padding */
   }
 
   .info-content h3,
   .form-header h3 {
-    font-size: 26px;
+    font-size: 26px; /* Smaller headings */
   }
 
   .info-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column on tablets */
     gap: 15px;
   }
-
 
   .join-community-content h3 {
     font-size: 28px;
@@ -241,39 +212,22 @@
   }
 
   .form-container iframe {
-    height: 900px;
+    height: 900px; /* Taller iframe for mobile layout */
   }
 }
 
-/* Mobile (480px and below) */
+/* Mobile size */
 @media (max-width: 480px) {
-  .contact-hero {
-    padding: 40px 15px;
-    margin-bottom: 30px;
-  }
-
-  .hero-title {
-    font-size: 24px;
-    letter-spacing: 1px;
-  }
-
-  .hero-quote {
-    font-size: 16px;
-  }
-
-  .hero-author {
-    font-size: 12px;
-  }
 
   .contact-container {
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 10px; /* Narrower padding */
   }
 
   .contact-info,
   .contact-form-section {
     padding: 20px 15px;
-    border-radius: 15px;
+    border-radius: 15px; /* Slightly smaller rounding */
   }
 
   .info-content h3,
@@ -287,7 +241,7 @@
   }
 
   .info-card {
-    padding: 20px 15px;
+    padding: 20px 15px; /* Smaller cards */
   }
 
   .card-icon {
@@ -338,29 +292,5 @@
 
   .form-container iframe {
     height: 800px;
-  }
-}
-
-/* Extra Small Mobile (360px and below) */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 20px;
-  }
-
-  .hero-quote {
-    font-size: 14px;
-  }
-
-  .info-content h3,
-  .form-header h3 {
-    font-size: 20px;
-  }
-
-  .join-community-content h3 {
-    font-size: 20px;
-  }
-
-  .form-container iframe {
-    height: 700px;
   }
 }

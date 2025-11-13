@@ -5,8 +5,8 @@
 
 /* ---------- INTRO SECTION ---------- */
 .intro {
-  text-align: center;
-  padding: 60px 20px;
+  text-align: center; 
+  padding: 60px 20px; 
 }
 
 .intro h2 {
@@ -21,16 +21,16 @@
 }
 
 .gif {
-  width: 320px;         
-  max-width: 90%;        
+  width: 320px; /* Base width for GIF */
+  max-width: 90%; /* Ensures responsiveness on small screens */
   margin-top: 25px;
-  border-radius: 10px;
-  animation: float 3s ease-in-out infinite;
+  border-radius: 10px; /* Soft rounded corners */
+  animation: float 3s ease-in-out infinite; /* Floating animation */
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0); } /* Default position */
+  50% { transform: translateY(-10px); } /* Slight upward float */
 }
 
 /* ---------- TOP RATED SECTION ---------- */
@@ -46,16 +46,16 @@
 }
 
 .top-rated table {
-  width: 85%;
-  margin: 0 auto;
+  width: 85%; /* Centers the table and prevents full width */
+  margin: 0 auto;/* Center alignment */
 }
 
 /* ---------- VIDEO SECTION ---------- */
 .video {
   text-align: center;
   padding: 60px 20px;
-  border-top: 2px solid #a67c52;
-  border-bottom: 2px solid #a67c52;
+  border-top: 2px solid #a67c52;    /* Gold line above */
+  border-bottom: 2px solid #a67c52; /* Gold line below */
 }
 
 .video h2 {
@@ -65,21 +65,21 @@
 }
 
 .video video {
-  width: 90%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
+  width: 90%; /* Responsive width */
+  max-width: 800px; /* Prevents video from stretching too wide */
+  aspect-ratio: 16 / 9; /* Keeps proper video ratio */
   border-radius: 10px;
-  box-shadow: 0 0 45px rgba(212, 175, 55, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.3); /* Gold glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
 }
 
 .video video:focus {
-  outline: none;
+  outline: none; /* Removes default browser outline */
 }
 
 .video video:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+  transform: scale(1.02); /* Small zoom on hover */
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5); /* Stronger glow */
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
@@ -89,7 +89,7 @@
   }
 
   .intro h2 {
-    font-size: 28px;
+    font-size: 28px; /* Smaller heading */
   }
 
   .intro p {
@@ -105,7 +105,7 @@
   }
 
   .top-rated table {
-    width: 95%;
+    width: 95%; /* More table width for tablets */
     font-size: 14px;
   }
 
@@ -118,7 +118,7 @@
   }
 
   .gif {
-    width: 180px;
+    width: 180px; /* Smaller GIF width on tablets */
   }
 }
 
@@ -144,7 +144,7 @@
   }
 
   .top-rated table {
-    width: 100%;
+    width: 100%; /* Full width for small screens */
     font-size: 12px;
   }
 
@@ -157,6 +157,6 @@
   }
 
   .gif {
-    width: 150px;
+    width: 150px; /* Compact GIF size on mobile */
   }
 }

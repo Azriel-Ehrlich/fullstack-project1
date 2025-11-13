@@ -1,120 +1,117 @@
 /* ======================================= */
 /*   BOOKVERSE – FORM PAGES STYLES         */
-/*   Shared styles for contact & submit    */
+/*   submit   styles                       */
 /* ======================================= */
 
 /* ---------- FORM CONTAINER ---------- */
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; 
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Vertically centers form (when height allows) */
 }
 
 form {
   background-color: #1a1a1a;
-  border: 2px solid #a67c52;
-  border-radius: 15px;
-  padding: 50px;
-  max-width: 600px;
-  width: 100%;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid #a67c52; 
+  border-radius: 15px; 
+  padding: 50px; 
+  max-width: 600px; /* Form width limit */
+  width: 100%; 
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Deep glow effect */
 }
 
 form h2 {
-  color: #d4af37;
+  color: #d4af37; /* Gold text */
   text-align: center;
   margin-bottom: 30px;
   font-size: 28px;
 }
 
 form label {
-  display: block;
+  display: block; /* Places label on its own line */
   color: #d4af37;
   font-weight: bold;
   margin-bottom: 8px;
-  margin-top: 15px;
+  margin-top: 15px; /* Space above each label */
 }
 
 form input,
 form select,
 form textarea {
-  width: 100%;
-  background-color: #262626;
-  color: #e0d6c3;
-  border: 1px solid #a67c52;
+  width: 100%; 
+  background-color: #262626; 
+  color: #e0d6c3; /* Soft beige text color */
+  border: 1px solid #a67c52; 
   border-radius: 5px;
   padding: 12px;
   margin-bottom: 15px;
-  font-family: 'Georgia', serif;
+  font-family: 'Georgia', serif; 
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Smooth hover/focus animations */
 }
 
 form input:focus,
 form select:focus,
 form textarea:focus {
-  outline: none;
-  border-color: #d4af37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-  background-color: #2a2a2a;
+  outline: none; /* Removes default  browser outline */
+  border-color: #d4af37; /* Highlighted focus border */
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* Soft gold glow */
+  background-color: #2a2a2a; /* Slightly lighter on focus */
 }
 
 form textarea {
-  resize: vertical;
-  min-height: 150px;
+  resize: vertical; /* Allows vertical resizing only */
+  min-height: 150px; /* Base height */
 }
 
 form input[type="submit"] {
-  background-color: #a67c52;
+  background-color: #a67c52; /* Button main color */
   color: #0d0d0d;
-  cursor: pointer;
+  cursor: pointer; /* Pointer icon */
   font-weight: bold;
   border: none;
   padding: 12px 30px;
   font-size: 16px;
   border-radius: 5px;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-  width: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  transition: all 0.3s ease; /* Hover animation */
+  width: auto; /* Fits content */
+  display: block; /* Allows centering via margins */
+  margin: 20px auto 0;/* Top margin + center alignment */
 }
 
 form input[type="submit"]:hover {
-  background-color: #d4af37;
-  transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+  background-color: #d4af37; /* Brighter gold */
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4); /* Button glow */
   color: #e0d6c3;
 }
 
 form input[type="submit"]:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Press-down effect */
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 768px) {
   main {
-    min-height: auto;
+    min-height: auto; /* Prevent oversized vertical stretch */
     padding: 30px 0;
   }
 
   form {
-    padding: 35px;
+    padding: 35px; /* Smaller padding */
     max-width: 600px;
-    margin: 30px 20px;
-    
+    margin: 30px 20px; /* Page spacing */
   }
 
   form h2 {
-    font-size: 24px;
+    font-size: 24px; /* Smaller heading */
   }
 
   form input,
   form select,
   form textarea {
     padding: 10px;
-    font-size: 13px;
+    font-size: 13px; /* Slight scaling down */
   }
 
   form textarea {
@@ -124,11 +121,11 @@ form input[type="submit"]:active {
 
 @media (max-width: 480px) {
   main {
-    padding: 20px 0;
+    padding: 20px 0; /* Narrower spacing */
   }
 
   form {
-    padding: 25px;
+    padding: 25px; /* Compact padding */
     margin: 20px 15px;
   }
 
@@ -160,4 +157,3 @@ form input[type="submit"]:active {
     margin-top: 15px;
   }
 }
-

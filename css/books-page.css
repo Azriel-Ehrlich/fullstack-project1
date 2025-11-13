@@ -1,22 +1,21 @@
 /* ======================================= */
 /* BOOKVERSE – BOOKS PAGE STYLES           */
 /* Page-specific styles for books.html     */
-/* No gradients or vendor prefixes         */
 /* ======================================= */
 
 /* ---------- CATEGORY BAR ---------- */
 .category-bar {
-  position: sticky;
+  position: sticky; /* Sticks to the top while scrolling */
   top: 0;
-  z-index: 100;
+  z-index: 100; /* Ensures bar stays above content */
   background-color: #1a1a1a;
   border-bottom: 2px solid #d4af37;
   border-top: 2px solid #d4af37;
   padding: 15px 20px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.7);
+  flex-wrap: wrap; /* Allows wrapping of lines on small screens */
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.7); /* Heavy shadow under bar */
 }
 
 .category-bar a {
@@ -24,42 +23,42 @@
   font-weight: bold;
   padding: 8px 18px;
   border: 1px solid #d4af37;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  border-radius: 25px; /* Rounded pill shape */
+  transition: all 0.3s ease; /* Smooth hover animation */
 }
 
 /* Subtle underline animation */
 .category-bar a::after {
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: #d4af37;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+  position: absolute; 
+  bottom: 4px; 
+  left: 50%; /* Centers the start point of the underline */
+  width: 0; /* Starts invisible */
+  height: 2px; 
+  background-color: #d4af37; 
+  transition: all 0.3s ease; 
+  transform: translateX(-50%); /*Makes sure the underline is perfectly centered */
 }
 
 .category-bar a:hover::after {
-  width: 70%;
+  width: 70%; /* Expands underline on hover */
 }
 
 .category-bar a:hover {
-  background-color: #d4af37;
-  color: #0d0d0d;
-  transform: scale(1.05);
+  background-color: #d4af37; 
+  color: #0d0d0d; /* Dark text for contrast */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* ---------- MAIN CONTENT ---------- */
 .genres {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stacks genre sections vertically */
 }
 
 .genre-section {
   padding: 60px 0;
   border-bottom: 2px solid #333;
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.8s ease-out; /* Section entrance animation */
 }
 
 @keyframes fadeInUp {
@@ -72,7 +71,7 @@
   font-size: 32px;
   margin-left: 30px;
   margin-bottom: 30px;
-  position: relative;
+  position: relative; /* Needed for the decorative line */
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -80,9 +79,9 @@
 .genre-section h2::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -10px; /* Places line under the title */
   left: 0;
-  width: 80px;
+  width: 80px; /* Decorative line length */
   height: 3px;
   background-color: #d4af37;
 }
@@ -91,27 +90,27 @@
 .book-shelf {
   display: flex;
   gap: 30px;
-  overflow-x: auto;
+  overflow-x: auto; /* Horizontal scroll */
   padding: 30px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: #d4af37 #1a1a1a;
+  scroll-behavior: smooth; /* Smooth sliding */
+  scroll-snap-type: x mandatory; /* Snaps cards into place */
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #d4af37 #1a1a1a; /* Gold thumb, dark track */
 }
 
 /* ---------- 3D FLIP CARDS ---------- */
 .card {
-  flex: 0 0 220px;
+  flex: 0 0 220px; /* Fixed card width */
   height: 340px;
-  perspective: 1200px;
+  perspective: 1200px; /* 3D depth for flipping */
   position: relative;
 }
 
 .card-inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
+  transition: transform 0.8s ease; /* Smooth flip animation */
+  transform-style: preserve-3d; /* Enables 3D sides */
 }
 
 .card:hover .card-inner { transform: rotateY(180deg); }
@@ -121,7 +120,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
+  backface-visibility: hidden; /* Hides backside when flipped */
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -129,8 +128,8 @@
   justify-content: flex-start;
   padding: 15px;
   padding-top: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Card shadow */
+  border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
 }
 
 /* Front side */
@@ -144,15 +143,15 @@
   height: 230px;
   border-radius: 10px;
   margin-bottom: 12px;
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2); /* Glow effect */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Hover zoom/brighten */
   object-fit: cover;
   flex-shrink: 0;
 }
 
 .card:hover .card-front img {
-  transform: scale(1.05);
-  filter: brightness(1.2);
+  transform: scale(1.05); /* Slight zoom on flip */
+  filter: brightness(1.2); /* Brighter cover */
 }
 
 .card-front h3 {
@@ -160,7 +159,7 @@
   margin: 8px 0 4px;
   text-align: center;
   line-height: 1.2;
-  max-height: 3.6em;
+  max-height: 3.6em; /* Prevents long titles from overflowing */
   overflow: hidden;
   width: 100%;
   padding: 0 5px;
@@ -170,7 +169,7 @@
   color: #bca46d;
   font-size: 13px;
   margin: 0;
-  white-space: nowrap;
+  white-space: nowrap; /* Keeps author on one line */
   overflow: hidden;
   width: 100%;
   text-align: center;
@@ -181,7 +180,7 @@
 .card-back {
   background-color: #2a2a2a;
   color: #e0d6c3;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg); /* Hidden back face */
   padding: 20px;
   text-align: center;
   justify-content: space-between;
@@ -207,10 +206,9 @@
 
 /* ---------- RESPONSIVE DESIGN ---------- */
 
-
-@media (max-width: 768px) {
+@media (max-width: 768px) {/* Tablet size */
   .category-bar { 
-    gap: 10px; 
+    gap: 10px; /* More compact spacing */
     padding: 12px 15px; 
   }
   .category-bar a { 
@@ -218,8 +216,8 @@
     font-size: 12px; 
   }
   .book-shelf { 
-    gap: 15px; padding: 
-    20px; 
+    gap: 15px; 
+    padding: 20px; 
   }
   .card { 
     flex: 0 0 180px; 
@@ -231,12 +229,13 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) {/* Mobile size */
   .category-bar { 
     gap: 8px; 
     padding: 10px; 
   }
-  .category-bar a { padding: 5px 10px; 
+  .category-bar a { 
+    padding: 5px 10px; 
     font-size: 11px; 
   }
   .genre-section { 

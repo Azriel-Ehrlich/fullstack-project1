@@ -5,30 +5,32 @@
 
 /* ---------- GLOBAL STYLING ---------- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; /* Ensures padding doesn't increase element size */
 }
 
 body {
   background: 
+    /* Dark overlay for readability */
     linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)),
+    /* Background image */
     url("../media/images/library.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  color: #e0d6c3;
-  font-family: 'Georgia', serif;
-  line-height: 1.6;
+  background-size: cover; /* Image covers the screen fully */
+  background-repeat: no-repeat;/* the background image does not repeat */
+  background-attachment: fixed; /*keeps background fixed during scroll*/
+  background-position: center;/* Centered image */
+  color: #e0d6c3; 
+  font-family: 'Georgia', serif; 
+  line-height: 1.6; 
 }
 
 /* Links general look */
 a {
   color: #c9a961;
   text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: all 0.3s ease; /* Smooth hover */
+  position: relative; /* Needed for pseudo underline */
 }
 
 footer a::after {
@@ -36,23 +38,23 @@ footer a::after {
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0;
+  width: 0; /* Starts empty */
   height: 2px;
   background: #c9a961;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease; /* Expands underline on hover */
 }
 
 a:hover {
-  color: #e0d6c3;
+  color: #e0d6c3;/* Lighter on hover */
 }
 
 a:hover::after {
-  width: 100%;
+  width: 100%; /* Full underline */
 }
 
 /* ---------- LOGO ---------- */
 .logo-container {
-  float: left;
+  float: left; /* Places logo left in header */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,25 +63,25 @@ a:hover::after {
 .logo {
   width: 100px;
   height: auto;
-  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
-  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4)); /* Soft glow */
+  transition: transform 0.4s ease, filter 0.4s ease; /* Hover animations */
 }
 
 /* Subtle magical sparkle effect on hover */
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slight zoom */
   filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8))
-          brightness(1.2);
+          brightness(1.2); /* Stronger glow */
 }
 
-/* Optional: small glow animation (sparkle pulse) */
+/* small glow animation (sparkle pulse) */
 @keyframes logoGlow {
   0%, 100% { filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4)); }
   50% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.9)); }
 }
 
 .logo {
-  animation: logoGlow 3s infinite ease-in-out;
+  animation: logoGlow 3s infinite ease-in-out; /* Continuous glow pulse */
 }
 
 
@@ -89,7 +91,7 @@ header {
   color: #d4af37;
   text-align: center;
   padding: 20px;
-  border-bottom: 2px solid #a67c52;
+  border-bottom: 2px solid #a67c52; /* Gold divider line */
 }
 
 header h1 {
@@ -100,9 +102,9 @@ header h1 {
 nav {
   margin-top: 10px;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: center; /* Centers nav items */
+  gap: 20px; /* Space between links */
+  flex-wrap: wrap; /* Allows wrapping on small screens */
 }
 
 nav a {
@@ -120,32 +122,32 @@ nav a::after {
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0;
+  width: 0; /* Hidden underline */
   height: 2px;
-  background: #d4af37;
+  background: #d4af37; /* Gold underline */
   transition: width 0.3s ease;
 }
 
 nav a:hover {
-  color: #d4af37;
-  transform: translateY(-2px);
+  color: #d4af37; /* Gold text hover */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
 nav a:hover::after {
-  width: 100%;
+  width: 100%; /* Full underline effect */
 }
 
 /* ---------- TABLES ---------- */
 table {
-  width: 85%;
+  width: 85%; /* Keeps table centered and not too wide */
   margin: 0 auto;
-  border-collapse: collapse;
+  border-collapse: collapse; /* Clean borders */
   color: #e0d6c3;
   font-size: 16px;
 }
 
 th, td {
-  border: 1px solid #a67c52;
+  border: 1px solid #a67c52; 
   padding: 10px;
 }
 
@@ -155,7 +157,7 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #121212;
+  background-color: #121212; /* Alternating rows */
 }
 tr:nth-child(odd) {
   background-color: #2c2a2a;
@@ -164,9 +166,9 @@ tr:nth-child(odd) {
 /* ---------- MAIN CONTENT ---------- */
 main {
   position: relative;
-  z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto;
+  z-index: 1; /* Ensures content stays above background */
+  max-width: 1400px; /* Limits content width */
+  margin: 0 auto; /* Centers the content */
   padding: 20px;
 }
 
@@ -176,7 +178,7 @@ footer {
   color: #d4af37;
   text-align: center;
   padding: 20px;
-  border-top: 2px solid #a67c52;
+  border-top: 2px solid #a67c52; /* Gold bar */
   font-size: 14px;
 }
 
@@ -191,7 +193,7 @@ footer a:hover {
 /* ---------- RESPONSIVE DESIGN ---------- */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 24px;
+    font-size: 24px; /* Smaller header */
   }
 
   nav {
@@ -204,7 +206,7 @@ footer a:hover {
   }
 
   input, select, textarea {
-    width: 85%;
+    width: 85%; /* Form fields shrink */
   }
 
   textarea {
@@ -214,9 +216,10 @@ footer a:hover {
   table {
     font-size: 14px;
   }
-    .logo {
-  width: 75px;
-}
+
+  .logo {
+    width: 75px; /* Smaller logo */
+  }
 }
 
 @media (max-width: 480px) {
@@ -241,7 +244,8 @@ footer a:hover {
     width: 90%;
     font-size: 14px;
   }
+
   .logo {
-  width: 50px;
-}
+    width: 50px; /* Mobile-size logo */
+  }
 }
